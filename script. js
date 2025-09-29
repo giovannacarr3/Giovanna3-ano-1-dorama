@@ -1,0 +1,20 @@
+// Acessibilidade: alto contraste e controle de fonte
+(function(){
+  const btnContrast = document.getElementById('toggle-contrast');
+  const plus = document.getElementById('font-plus');
+  const minus = document.getElementById('font-minus');
+
+  if(btnContrast){
+    btnContrast.addEventListener('click', ()=>{
+      document.body.classList.toggle('high-contrast');
+    });
+  }
+
+  let fontSize = 100;
+  function setSize(v){
+    fontSize = Math.max(80, Math.min(130, v));
+    document.documentElement.style.fontSize = fontSize + "%";
+  }
+  plus && plus.addEventListener('click', ()=> setSize(fontSize+5));
+  minus && minus.addEventListener('click', ()=> setSize(fontSize-5));
+})();
